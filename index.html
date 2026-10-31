@@ -169,33 +169,30 @@ section { display: grid; gap: 22px; }
 .doom-panel {
   position: relative; overflow: hidden; display: grid; justify-items: center; gap: 18px;
   padding: 26px 12px 18px; border-radius: 22px;
-  background: radial-gradient(ellipse at 50% 30%, #06301a 0%, #021208 55%, #000502 100%);
-  border: 1.5px solid rgba(70, 255, 140, .75);
+  background: radial-gradient(ellipse at 50% 20%, #5a1530 0%, #2a0614 55%, #14020a 100%);
+  border: 1.5px solid rgba(232, 201, 140, .75);
   animation: alarm 2s ease-in-out infinite;
 }
 @keyframes alarm {
-  0%, 100% { box-shadow: 0 0 0 1px rgba(70, 255, 140, .25), 0 0 26px rgba(40, 255, 120, .22), inset 0 0 40px rgba(30, 255, 110, .14), 0 24px 54px rgba(0, 0, 0, .6); }
-  50% { box-shadow: 0 0 0 1px rgba(70, 255, 140, .5), 0 0 46px rgba(40, 255, 120, .5), inset 0 0 60px rgba(30, 255, 110, .28), 0 24px 54px rgba(0, 0, 0, .6); }
+  0%, 100% { box-shadow: 0 0 0 6px rgba(53, 9, 25, .6), 0 0 0 7.5px rgba(232, 201, 140, .3), 0 0 24px rgba(232, 180, 120, .18), inset 0 0 40px rgba(196, 74, 111, .22), 0 24px 54px rgba(0, 0, 0, .55); }
+  50% { box-shadow: 0 0 0 6px rgba(53, 9, 25, .6), 0 0 0 7.5px rgba(232, 201, 140, .5), 0 0 44px rgba(232, 180, 120, .38), inset 0 0 60px rgba(196, 74, 111, .38), 0 24px 54px rgba(0, 0, 0, .55); }
 }
 .doom-panel::after { /* CRT scanlines */
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .28) 0 2px, transparent 2px 4px);
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .14) 0 2px, transparent 2px 4px);
 }
 .clock { display: flex; justify-content: center; align-items: flex-start; gap: clamp(2px, 1.5vw, 10px); position: relative; z-index: 1; }
 .seg { display: grid; justify-items: center; gap: 8px; min-width: 0; }
 .seg b {
   font: 500 clamp(36px, 12vw, 64px)/1 var(--font-label); font-variant-numeric: tabular-nums; letter-spacing: .02em;
-  color: #4dff8a; text-shadow: 0 0 8px rgba(60, 255, 130, .95), 0 0 24px rgba(30, 255, 110, .7), 0 0 44px rgba(0, 255, 90, .4);
+  color: #ffe2a8; text-shadow: 0 0 10px rgba(255, 190, 120, .75), 0 0 26px rgba(214, 70, 100, .55);
 }
 .seg b.tick { animation: tick .45s ease-out; }
-@keyframes tick { 0% { transform: scale(1.12); color: #eafff0; } 100% { transform: none; } }
-.seg span { font: 500 10px/1 var(--font-label); letter-spacing: .24em; text-transform: uppercase; color: #a8ffc6; opacity: .85; }
-.colon { font: 500 clamp(30px, 10vw, 54px)/1 var(--font-label); font-style: normal; color: #3dff7f; text-shadow: 0 0 12px rgba(30, 255, 110, .9); animation: blink 1s steps(1) infinite; }
+@keyframes tick { 0% { transform: scale(1.12); color: #fffaf0; } 100% { transform: none; } }
+.seg span { font: 500 10px/1 var(--font-label); letter-spacing: .24em; text-transform: uppercase; color: var(--blush); opacity: .85; }
+.colon { font: 500 clamp(30px, 10vw, 54px)/1 var(--font-label); font-style: normal; color: #f0b9a0; text-shadow: 0 0 12px rgba(214, 70, 100, .8); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: .12; } }
-.tick-toggle { position: relative; z-index: 1; border: 1px solid rgba(110, 255, 160, .6); background: transparent; color: #a8ffc6; border-radius: 999px;
-  padding: 7px 14px; font: 500 11px/1 var(--font-label); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; }
-.tick-toggle[aria-pressed="false"] { opacity: .6; }
-.doom .count-note { color: #a8ffc6; }
+.doom .count-note { color: var(--blush); }
 /* ---------- closing ---------- */
 footer { text-align: center; display: grid; gap: 10px; justify-items: center; }
 footer .closing { margin: 0; font-style: italic; font-size: 22px; max-width: 24ch; }
@@ -373,8 +370,8 @@ footer .families { margin: 0; font: 300 13px/1.6 var(--font-label); letter-spaci
 
   <section class="doom" aria-labelledby="countTitle">
     <div class="sec-title">
-      <span class="label doom-label">T-minus · 11:30 AM · 25 Nov 2026</span>
-      <h2 id="countTitle" class="doom-title">The Countdown</h2>
+      <span class="label">Muhurtham · 11:30 AM · 25 Nov 2026</span>
+      <h2 id="countTitle" class="gold-text">The Countdown</h2>
       <svg class="flourish" aria-hidden="true"><use href="#flourish"/></svg>
     </div>
     <div class="doom-panel">
@@ -384,7 +381,6 @@ footer .families { margin: 0; font: 300 13px/1.6 var(--font-label); letter-spaci
         <div class="seg"><b id="cd-m">–</b><span>Minutes</span></div><i class="colon" aria-hidden="true">:</i>
         <div class="seg"><b id="cd-s">–</b><span>Seconds</span></div>
       </div>
-      <button class="tick-toggle" id="tickBtn" type="button" aria-pressed="true">Clock sound on</button>
     </div>
     <p class="count-note" id="countNote">until the auspicious muhurtham</p>
   </section>
@@ -606,7 +602,7 @@ footer .families { margin: 0; font: 300 13px/1.6 var(--font-label); letter-spaci
   }, { passive: true });
 
   /* doomsday clock sound: a ticking clock with a heartbeat thump, only while the countdown is on screen */
-  var actx = null, clockVisible = false, tickOn = true, tickBtn = document.getElementById("tickBtn");
+  var actx = null, clockVisible = false, tickOn = true;
   function ensureAudio() {
     try {
       if (!actx) { var AC = window.AudioContext || window.webkitAudioContext; if (AC) actx = new AC(); }
@@ -634,11 +630,6 @@ footer .families { margin: 0; font: 300 13px/1.6 var(--font-label); letter-spaci
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (en) { clockVisible = en[0].isIntersecting; }, { threshold: .35 }).observe(document.querySelector(".doom-panel"));
   } else { clockVisible = true; }
-  tickBtn.addEventListener("click", function () {
-    tickOn = !tickOn; ensureAudio();
-    tickBtn.setAttribute("aria-pressed", tickOn ? "true" : "false");
-    tickBtn.textContent = tickOn ? "Clock sound on" : "Clock sound off";
-  });
 
   /* opening screen: the guest's tap starts the song and the auto-scroll */
   var splash = document.getElementById("splash"), openBtn = document.getElementById("openBtn");
